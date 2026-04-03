@@ -772,7 +772,7 @@
   <div class="articles-grid">
 
     <!-- CHANGE 3: New article card for the sampling strategies paper — clicking opens the PDF in a modal -->
-    <div class="article-card has-pdf reveal" onclick="openPdfModal() style="cursor:pointer">
+    <div class="article-card has-pdf reveal" onclick="openPdfModal()" style="cursor:pointer">
       <div class="pdf-tag">✦ Research Paper</div>
       <div class="article-date">May 2025</div>
       <div class="article-title">Sampling Strategies for Hard-to-Reach Indigenous Populations: Challenges and Best Practices</div>
@@ -902,21 +902,6 @@ document.getElementById('pdfModal').addEventListener('click', function(e) {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closePdfModal();
 });
-
-  function closePdfModal() {
-    document.getElementById('pdfModal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  // Close modal on backdrop click
-  document.getElementById('pdfModal').addEventListener('click', function(e) {
-    if (e.target === this) closePdfModal();
-  });
-
-  // Close modal on Escape key
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closePdfModal();
-  });
 </script>
 </body>
 </html>
