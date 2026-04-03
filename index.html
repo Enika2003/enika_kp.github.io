@@ -772,7 +772,7 @@
   <div class="articles-grid">
 
     <!-- CHANGE 3: New article card for the sampling strategies paper — clicking opens the PDF in a modal -->
-    <div class="article-card has-pdf reveal" onclick="openPdfModal()">
+    <div class="article-card has-pdf reveal" onclick="openPdfModal() style="cursor:pointer">
       <div class="pdf-tag">✦ Research Paper</div>
       <div class="article-date">May 2025</div>
       <div class="article-title">Sampling Strategies for Hard-to-Reach Indigenous Populations: Challenges and Best Practices</div>
@@ -801,10 +801,12 @@
         If hosted online, use the full URL.
       -->
       <iframe
-        id="pdfIframe"
-        src=""
-        title="Sampling Strategies for Hard-to-Reach Indigenous Populations"
-      ></iframe>
+  id="pdfIframe"
+  src=""
+  data-src="https://drive.google.com/file/d/1iZrGj49BcSOP-7GIYIpLiQe6MCByYDat/preview"
+  title="Sampling Strategies for Hard-to-Reach Indigenous Populations"
+  allow="autoplay"
+></iframe>
     </div>
   </div>
 </div>
@@ -881,18 +883,25 @@
 
   // PDF Modal
   // ── IMPORTANT: Set the path to your PDF file here ──
-  const PDF_PATH = 'Article_on_sampling_strategies-2-8.pdf';
-
   function openPdfModal() {
-    const modal = document.getElementById('pdfModal');
-    const iframe = document.getElementById('pdfIframe');
-    // Load the PDF only when first opened
-    if (!iframe.src || iframe.src === window.location.href) {
-      iframe.src = PDF_PATH;
-    }
-    modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
+  const modal = document.getElementById('pdfModal');
+  const iframe = document.getElementById('pdfIframe');
+  if (!iframe.src || iframe.src === window.location.href) {
+    iframe.src = iframe.dataset.src;
   }
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closePdfModal() {
+  document.getElementById('pdfModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('pdfModal').addEventListener('click', function(e) {
+  if (e.target === this) closePdfModal();
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closePdfModal();
+});
 
   function closePdfModal() {
     document.getElementById('pdfModal').classList.remove('open');
