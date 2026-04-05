@@ -602,7 +602,7 @@
 
       <!-- CHANGE 1: stats-card and skills-float repositioned so they never cover the photo -->
       <div class="stats-card">
-        <div class="stat-num">4+</div>
+        <div class="stat-num">3+</div>
         <div class="stat-label">Projects completed</div>
       </div>
       <div class="skills-float">
@@ -719,7 +719,7 @@
     </a>
 
     <a href="https://github.com/Enika2003/Customer-Churn-Analysis" target="_blank" class="project-item reveal">
-      <div class="project-num">03</div>
+      <div class="project-num">04</div>
       <div class="project-info">
         <div class="proj-title">Customer Churn Analysis</div>
         <div class="proj-tags">
@@ -733,7 +733,7 @@
     </a>
 
     <a href="https://github.com/Enika2003/Revealing-NSW-Road-Crash-Patterns-and-Safety-Risks" target="_blank" class="project-item reveal">
-      <div class="project-num">04</div>
+      <div class="project-num">05</div>
       <div class="project-info">
         <div class="proj-title">Revealing NSW Road Crash Patterns and Safety Risks</div>
         <div class="proj-tags">
@@ -787,7 +787,7 @@
   <div class="articles-grid">
 
     <!-- CHANGE 3: New article card for the sampling strategies paper — clicking opens the PDF in a modal -->
-    <div class="article-card has-pdf reveal" onclick="openPdfModal()" style="cursor:pointer">
+    <div class="article-card has-pdf reveal" onclick="openPdfModal() style="cursor:pointer">
       <div class="pdf-tag">✦ Research Paper</div>
       <div class="article-date">May 2025</div>
       <div class="article-title">Sampling Strategies for Hard-to-Reach Indigenous Populations: Challenges and Best Practices</div>
@@ -917,6 +917,21 @@ document.getElementById('pdfModal').addEventListener('click', function(e) {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closePdfModal();
 });
+
+  function closePdfModal() {
+    document.getElementById('pdfModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Close modal on backdrop click
+  document.getElementById('pdfModal').addEventListener('click', function(e) {
+    if (e.target === this) closePdfModal();
+  });
+
+  // Close modal on Escape key
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closePdfModal();
+  });
 </script>
 </body>
 </html>
